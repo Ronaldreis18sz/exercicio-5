@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            color: rgb(43, 43, 43);
+            background-color: bisque;
+            display: block;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+    Java Script: projeto interino de gerenciamento de tarefas.
+    <script>
+        
+        //Funcition para incluir o sistema de inserção de descrição a algum objeto.
+        //também tendo um sistema de remoção de objetos.
+
+function gerenciarTarefas(listaDeTarefas, acao) {
+  if (acao === "adicionar") {
+    let descricao = prompt("Escreva uma descrição perante a tarefa a realizar:");
+    listaDeTarefas.push({ descricao: descricao, concluida: false });
+  } else if (acao === "remover") {
+    let descricao = prompt("Remova um objeto adicionado: ");
+    listaDeTarefas = listaDeTarefas.filter(tarefa => tarefa.descricao !== descricao);
+  } else if (acao === "listar") {
+    console.log("Tarefas:");
+    listaDeTarefas.forEach(tarefa => console.log(`  - ${tarefa.descricao} (${tarefa.concluida ? "Concluída" : "Não concluída"})`));
+  }
+  return listaDeTarefas;
+}
+//Sistema utilizando if and else if para controle de gerenciamento além de mostrar caso a ação tenha sido concluida ou não.
+
+//Lista de coisas a serem realizadas ou removidas do sistema de prompt
+//Possuindo valores true or false.
+let tarefas1 = [
+  { descricao: "Estudar", concluida: true },
+  { descricao: "Fazer atividades", concluida: false },
+  { descricao: "Viajar", concluida: true },
+  { descricao: "Trabalhar", concluida: false },
+  { descricao: "Exercitar", concluida: true },
+  { descricao: "Comer", concluida: true },
+  { descricao: "Arrumar", concluida: false },
+  { descricao: "Correr", concluida: true },
+  { descricao: "Assistir", concluida: false },
+  { descricao: "Consertar", concluida: true },
+
+
+];
+
+//Parte do sistema responsavel pelo controle de gerenciamentos, adiação de listas.
+gerenciarTarefas(tarefas1, "Listar.");
+gerenciarTarefas(tarefas1, "Adicionar.");
+gerenciarTarefas(tarefas1, "Remover.");
+gerenciarTarefas(tarefas1, "Listar.");
+
+console.log(tarefas1);
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
